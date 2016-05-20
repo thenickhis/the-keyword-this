@@ -42,6 +42,7 @@ var Car = function(make, model, year) {
   this.make = make;
   this.model = model;
   this.year = year;
+  this.move = 0;
   this.moveCar = function() {return this.move += 10;};
 }
 
@@ -65,7 +66,8 @@ var getYear = function(){
 
 //Note(no tests)
   //Code Here
-
+getYear.call(prius);
+getYear.call(mustang);
 
 //New Problem
 
@@ -86,9 +88,10 @@ setTimeout(getMyUsername, 5000);
 //Above you're given an object, a function, and a setTimeout invocation. After 5 seconds, what will the getUsername function return?
 //Note(no tests)
   //Answer Here
-
+//  undefined
 //In the example above, what is the 'this keyword' bound to when getUsername runs?
 
   //Answer Here
-
+//  window
 //Fix the setTimeout invocation so that the user object will be the focal object when getUsername is ran.
+setTimeout(getMyUsername.call(myUser), 5000);
